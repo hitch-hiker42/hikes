@@ -83,7 +83,7 @@ void solution() {
                     if(missing[m]) {
                         if(!clist[m][j]) {
                             dfmtrx[i][j] = m;
-                            clist[m][j] = unit; //again, not anymore;
+                            clist[m][j] = unit;
                             missing[m] = zero;
                             break;
                         }
