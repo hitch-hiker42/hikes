@@ -9,7 +9,7 @@ using namespace std;
 #define precise(n) cout << fixed; cout << setprecision(n)
 #define endl '\n'
 #define debug
-#define pipeline
+//#define pipeline
 enum constants {zero, unit, two, three, four, five, six, seven, eight, nine, infmin = numeric_limits<int>::min(), infmax = numeric_limits<int>::max(), mod = int(1e9 + 7)};
 
 //debugging:
