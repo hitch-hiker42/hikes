@@ -1,0 +1,2 @@
+Number of scalar multiplications in the optimal parenthesization: 15125
+Optimal parenthesization: ((1(23))((45)6))
