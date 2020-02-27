@@ -31,13 +31,13 @@ void error(const char* foo, John&& bar, Doe&&... args) {
 #endif
 
 //solution:
-void parenthesize(auto& s, int i, int j) {
-    if(i == j) {
-        cout << i;
+void parenthesize(auto& s, int l, int r) {
+    if(l == r) {
+        cout << l;
     } else {
         cout << '(';
-        parenthesize(s, i, s[i][j]);
-        parenthesize(s, s[i][j] + 1, j);
+        parenthesize(s, l, s[l][r]);
+        parenthesize(s, s[l][r] + 1, r);
         cout << ')';
     }
 }
@@ -52,11 +52,12 @@ void solution() {
     
     //black-box:
     int64_t dp[n + 1][n + 1];
-    memset(dp, zero, (n + 1) * (n + 1) * sizeof(int64_t));
+    memset(dp, 0, (n + 1) * (n + 1) * sizeof(int64_t));
     vector<vector<int>> s(n + 1, vector<int>(n + 1, 0));               
     for(int l = 2; l <= n; ++l) {      
         for(int i = 1; i <= n - l + 1; ++i) {
-            int j = i + l - 1;
+            //l = j - i + 1 -> i = j - l + 1, j = l + i - 1;
+            int j = i + l - 1; 
             dp[i][j] = infmax;
             for(int k = i; k < j; ++k) {
                 int64_t local = dp[i][k] + dp[k + 1][j] + (p[i - 1] * p[k] * p[j]);              
