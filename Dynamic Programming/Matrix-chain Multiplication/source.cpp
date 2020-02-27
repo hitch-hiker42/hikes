@@ -70,9 +70,11 @@ void solution() {
             }
         }
     }
-
-    //output:
+    
+    //optimal value:
     cout << "Number of scalar multiplications in the optimal parenthesization: " << dp[1][n] << endl;
+    
+    //output(optimal solution):
     cout << "Optimal parenthesization: ";
     parenthesize(s, 1, n);
     cout << endl;
