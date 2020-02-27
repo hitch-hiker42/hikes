@@ -54,15 +54,17 @@ void solution() {
     int64_t dp[n + 1][n + 1];
     memset(dp, 0, (n + 1) * (n + 1) * sizeof(int64_t));
     vector<vector<int>> s(n + 1, vector<int>(n + 1, 0));               
-    for(int l = 2; l <= n; ++l) {      
+    
+    //bottom-up tabulation:
+    for(int l = 2; l <= n; ++l) {   
         for(int i = 1; i <= n - l + 1; ++i) {
             //l = j - i + 1 -> i = j - l + 1, j = l + i - 1;
             int j = i + l - 1; 
             dp[i][j] = infmax;
             for(int k = i; k < j; ++k) {
-                int64_t local = dp[i][k] + dp[k + 1][j] + (p[i - 1] * p[k] * p[j]);              
-                if(local < dp[i][j]) {
-                    dp[i][j] = local;
+                int64_t cost = dp[i][k] + dp[k + 1][j] + (p[i - 1] * p[k] * p[j]);              
+                if(cost < dp[i][j]) {
+                    dp[i][j] = cost;
                     s[i][j] = k;
                 }                           
             }
