@@ -1,6 +1,6 @@
 # Problem Statement: 
 Since matrix-multiplication is associative (but not necessarily commutative), there may be more than one way to compute the product.
-Nevertheless, the path we choose greatly affects the number of calculations we make on the way. In this classic problem, we need to be 
+Nevertheless, the path we choose greatly affects the number of calculations we make on the way. In this classic problem, we need to 
 make a set of decisions that minimizes the effort (well, at least for machines).
 
 Given a chain **<A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>n</sub>>** of **n** matrices, where for **i = 1, 2, ..., n**,
