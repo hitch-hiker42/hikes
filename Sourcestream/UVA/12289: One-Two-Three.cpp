@@ -1,8 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-constexpr int alive = 1;
-
 int main() {
     bitset<3> bit[3] = {3, 5, 6};
     string one = "one";
