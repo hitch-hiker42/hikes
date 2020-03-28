@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void init(auto& lang) {
+void init(map<string, string>& lang) {
     lang["HELLO"] = "ENGLISH";
     lang["HOLA"] = "SPANISH";
     lang["HALLO"] = "GERMAN";
@@ -18,7 +18,7 @@ int main() {
         if(lang.find(s) != lang.end()) {
             cout << "Case " << i++ << ": " << lang[s] << endl;
         } else {
-            cout << "Case " << i++ << ": Unknown" << endl;
+            cout << "Case " << i++ << ": UNKNOWN" << endl;
         }
     }
     return 0;
