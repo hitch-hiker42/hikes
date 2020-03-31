@@ -1,3 +1,4 @@
+//author: bitch_biker42;
 struct Solution {
     int search(vector<int>& a, int target) {
         #define span(v) begin(v), end(v)
@@ -10,4 +11,4 @@ struct Solution {
         return it != end(a) && *it == target ? distance(begin(a), it) : -1;
         #undef span(v)
     }
-};
+}; //on fire, bitches!
