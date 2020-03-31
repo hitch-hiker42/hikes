@@ -21,7 +21,7 @@ struct Solution {
                 }
             } else { //at right half;
                 if(target <= a.back()) { //target is in the right half too;
-                    if(a[mid] < target) { //above median;
+                    if(a[mid] < target) { //case 1: above median;
                         lo = mid + 1;
                     } else { //case 2: below median;
                         assert(a[mid] > target);
