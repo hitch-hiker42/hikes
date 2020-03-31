@@ -19,6 +19,6 @@ struct Solution {
             if(a[mid] < target) lo = mid + 1;
             else hi = mid - 1;
         }
-        return - 1;
+        return -1;
     }
 }; //farewell.. until we meet again;
