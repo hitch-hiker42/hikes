@@ -1,3 +1,4 @@
+//author: hitch_hiker42;
 struct Solution {
     int search(vector<int>& a, int target) {
         int n = (int)a.size(), lo = 0, hi = n - 1, m;
