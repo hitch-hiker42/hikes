@@ -1,7 +1,7 @@
 # Factorial Length
 
 The solution is a direct application of **Stirling's approximation** for factorials. Here's an overview (credits: wikipedia):
-In mathematics, Stirling's approximation (or Stirling's formula) is an approximation for factorials. It is a good approximation, leading to accurate results even for small values of n.
+> In mathematics, Stirling's approximation (or Stirling's formula) is an approximation for factorials. It is a good approximation, leading to accurate results even for small values of n.
 
 <p align="center">
   <img width="500" height="200" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7fe20ccef4b13b2fc2b79b752fb595da6d855de2">
