@@ -8,6 +8,6 @@ The solution is a direct application of **Stirling's approximation** for factori
 </p>
 
 Kamenetsky's formula is based on this very approximation, to estimate the number of digits in the factorial of a number. In general, the number of digits 
-in a number, say **d**, is given by **floor(log10(d)) + 1**. We can indeed use it to compute the same for **n!** as **log10(1.2..(n - 1).n)** expands to 
+in a number, say **d**, is given by **floor(log10(d)) + 1**. We can indeed use it to compute the same for **n!** as **log10(1 * 2 * ... * (n - 1) * n)** expands to 
 **log10(1) + log10(2) + ... + log10(n)**. The computation, as can be seen, will take time of the order linear in **n**. **The trick Kamenetsky uses is:** taking the
 logarithm of the approximation directly!
