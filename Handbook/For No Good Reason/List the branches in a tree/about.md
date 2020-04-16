@@ -1,7 +1,6 @@
 # List the branches in a tree
 
-We are given a rooted tree with **N** nodes labeled **1** through **N**. The root of the tree is at the node labeled - **1**. Let us
-define a **branch** to be a path that starts at the root and end at a leaf (there will be as many branches as there are leaves in the tree).
+We are given a rooted tree with **N** nodes labeled **1** through **N**. The root of the tree is (without the loss of generality) at the node labeled - **1**. Let us define a **branch** to be a path that starts at the root and end at a leaf (there will be as many branches as there are leaves in the tree).
 
 <p align="center">
   <img width="811" height="281" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQa4ZrcxWlz3aKaoSIMV0a0dGcUYyd0yjmmzy1Fn6gwOg4EZsZq&usqp=CAU">
