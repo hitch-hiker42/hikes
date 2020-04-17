@@ -10,15 +10,14 @@ bool dfs(auto& adj, int u, int state) {
     vis[u] = true;
     bool test = true;
     for(int& v: adj[u]) {
-        if(vis[v]) {
-            if((color[v] == state ^ 1) ^ 1) {
+        if(vis[v]) { //if this vertex has already been discovered, notice that it must have been assigned a color
+            if(!(color[v] == state ^ 1)) { //test if there is any inconsistency in coloring
                 return false;
             } else {
-                continue;
+                continue; //sheer ignorance
             }
         }
-        color[v] = state ^ 1;
-        test &= dfs(adj, v, state ^ 1);
+        test &= dfs(adj, v, color[v] = state ^ 1); //color and continue deeper in the graph
     }
     return test;
 }
@@ -34,11 +33,8 @@ void hike() {
         adj[v].emplace_back(u);
     }
     bool bipartite = true;
-    for(int i = 1; i <= n; ++i) {
-        if(!vis[i]) {
-            color[i] = 0;
-            bipartite &= dfs(adj, i, 0);
-        }
+    for(int i = 1; i <= n; ++i) if(!vis[i]) {
+        bipartite &= dfs(adj, i, color[i] = 0);
     }
     if(bipartite) {
         cout << "No suspicious bugs found!\n";
