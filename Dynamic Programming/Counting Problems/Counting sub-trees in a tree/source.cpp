@@ -7,8 +7,8 @@ int64_t dp[lim];
 bool vis[lim];
 
 //returns the number of subtrees rooted at vertex u:
-int64_t dfs(auto& adj, int u) {
-    int64_t& state = dp[u];
+auto dfs(auto& adj, int u) {
+    auto& state = dp[u];
     vis[u] = true;
     if(~state) return state;
     state = 1;
@@ -23,12 +23,12 @@ int main() {
     memset(dp, -1, sizeof dp);
     memset(vis, false, sizeof vis);
     vector<vector<int>> adj(n + 1);
-    for(int i = 0; i < n - 1; ++i) {
-        int u, v; cin >> u >> v;
+    for(int i = 0, u, v; i < n - 1; ++i) {
+        cin >> u >> v;
         adj[u].emplace_back(v);
         adj[v].emplace_back(u);
     }
-    int x, k{0}; cin >> s;
+    int x, k = 0; cin >> s;
     x = dfs(adj, s);
     for(int i = 1; i <= n; ++i) k += dp[i];
     cout << "Number of subtrees rooted at node " << s << ": " << x << endl;
