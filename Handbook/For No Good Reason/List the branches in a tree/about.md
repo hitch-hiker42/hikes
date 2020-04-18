@@ -10,4 +10,4 @@ The procedure lists all those branches in the dfs order traversal of the tree (t
 followed by the one whose leaf is discovered next, and so on.)
 
 **Example:** In the tree on the left in the picture, the branches are: **{1, 2}**, **{1, 3, 4}**, **{1, 3, 5}**; and in the one that's one the right,
-they are: **{1, 2, 3}**, **{1, 5, 6}**, **{1, 5, 7}**, **{1, 8, 4}**. Endnote.
+they are: **{1, 2, 3}**, **{1, 5, 6}**, **{1, 5, 7}**, **{1, 8, 4}**.
