@@ -30,7 +30,7 @@ int main() {
     }
     int x, k{0}; cin >> s;
     x = dfs(adj, s);
-    //for(int i = 1; i <= n; ++i) cout << dp[i] << ' ';
+    for(int i = 1; i <= n; ++i) k += dp[i];
     cout << "Number of subtrees rooted at node " << s << ": " << x << endl;
     cout << "Total number of subtrees of the given tree: " << k << endl;
     return 0;
