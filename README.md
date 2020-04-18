@@ -5,4 +5,4 @@ A virtual handbook of the algorithms and concepts that span the learn space of t
 
 2. It will also include concepts that he rediscovers on the way and finds significant enough to be written somewhere.
 
-  ~~3. Finally, it will serve as a storeroom for my some of my (evil) ideas and theories (to take over the world).~~
+    ~~3. Finally, it will serve as a storeroom for my some of my (evil) ideas and theories (to take over the world).~~
