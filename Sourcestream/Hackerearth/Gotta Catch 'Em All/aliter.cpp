@@ -9,7 +9,7 @@ signed main() {
     int t, n; cin >> t >> n;
     int x[n + 1] = {}, y[lim] = {};
     //x[i]: the number of divisors of i
-    //y[i]: count of numbers (1 <= j <= n) having at most i divisors
+    //y[i]: count of numbers, j (1 <= j <= n) having at most i divisors
     for(int i = 1; i <= n; ++y[x[i]], ++i) {
         for(int j = i; j <= n; ++x[j], j += i);
     }
