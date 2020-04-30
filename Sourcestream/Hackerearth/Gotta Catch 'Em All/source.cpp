@@ -29,13 +29,14 @@ auto factorize(int n) {
 
 signed main() {
     int t, n; cin >> t >> n;
+    sieve();
     auto div = [&](int x) {
         auto pf = factorize(x);
         int result = 1;
         for(auto& j: pf) result *= j.second + 1;
         return result;
     };
-    vector<int> v; sieve();
+    vector<int> v;
     for(int i = 1; i <= n; ++i) v.push_back(div(i));
     sort(span(v));
     for(int i = 0, k; i < t; ++i) {
