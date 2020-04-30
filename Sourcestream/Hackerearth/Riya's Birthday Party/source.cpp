@@ -10,6 +10,6 @@ signed main() {
     int t; cin >> t;
     while(t--) {
         int n; cin >> n, --n, n %= mod;
-        cout << (1 + n * (2 * n + 3)) % mod << endl;
+        cout << (2 * n * n + 3 * n + 1) % mod << endl;
     }
 } //farewell, until we meet again..
