@@ -6,7 +6,7 @@ int main() {
     #define int int64_t
     constexpr int lim = 1000'001;
     bitset<lim> prime; prime.set();
-	  prime.reset(0); prime.reset(1);
+    prime.reset(0); prime.reset(1);
     for(int i = 4; i < lim; i += 2) prime.reset(i);
     for(int i = 3; i < lim; i += 2) if(prime[i]) {
         for(int j = i * i, k = i << 1; j < lim; j += k) prime.reset(j);
