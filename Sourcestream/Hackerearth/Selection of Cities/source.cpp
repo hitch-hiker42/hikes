@@ -18,7 +18,7 @@ int power(int base, int exp, int m) {
 
 void hike() {
     int n; cin >> n;
-    cout << ((power(2, n, mod) - 1) + mod) % mod << endl;
+    cout << power(2, n, mod) - 1 << endl;
 }
 
 signed main() {
