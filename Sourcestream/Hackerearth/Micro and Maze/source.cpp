@@ -7,7 +7,7 @@ using namespace std;
 vector<pair<int, int>> moves = {{0, -1}, {1, 0}, {-1, 0}, {0, 1}}; //NEWS
 
 auto valid(int i, int j, int n, int m) {
-if(i < 0 || i >= n) return false;
+    if(i < 0 || i >= n) return false;
     if(j < 0 || j >= m) return false;
     return true;
 } 
