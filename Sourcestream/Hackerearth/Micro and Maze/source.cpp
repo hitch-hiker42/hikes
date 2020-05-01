@@ -4,7 +4,7 @@ using namespace std;
 
 //solution:
 #define matrix vector<vector<int>>
-vector<pair<int, int>> moves = {{0, -1}, {1, 0}, {-1, 0}, {0, 1}}; //NEWS
+vector<pair<int, int>> moves = {{0, -1}, {1, 0}, {-1, 0}, {0, 1}}; //{North, East, West, South}
 
 auto valid(int i, int j, int n, int m) {
     if(i < 0 || i >= n) return false;
