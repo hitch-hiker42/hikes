@@ -36,7 +36,7 @@ void enumerate(int a, int b, int c, int x1, int x2) {
 int equation_solver(int a, int b, int c, int minx = infmin, int maxx = infmax, int miny = infmin, int maxy = infmax) {
     if(a == 0 and b == 0) { //degeneracy
         if(c) return 0;
-        return -1;
+        return (maxx - minx + 1) * (maxy - miny + 1);
     }
     int x, y, d;
     if(!diophantine(a, b, c, x, y, d)) return 0;
