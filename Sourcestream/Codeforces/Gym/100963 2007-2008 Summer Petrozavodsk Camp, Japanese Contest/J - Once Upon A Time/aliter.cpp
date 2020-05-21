@@ -7,7 +7,7 @@ using namespace std;
 
 auto gcd(int a, int b) {
     if(!b) return make_tuple(a, (int)1, (int)0);
-    int d, x, y; tie(d, x, y) = gcd(b, a % b);
+    auto [d, x, y] = gcd(b, a % b);
     return make_tuple(d, y, x - (a / b) * y);
 }
 
@@ -16,7 +16,7 @@ signed main() {
     cin.tie(nullptr); cout.tie(nullptr);
     int n, m, a, k;
     while(cin >> n >> m >> a >> k, n || m || a || k) {
-        int d, x, y; tie(d, x, y) = gcd(m, a);
+        auto [d, x, y] = gcd(m, a);
         if((k + a - n) % d) {
             cout << "Impossible\n"; 
             continue;
