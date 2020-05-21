@@ -3,20 +3,16 @@
 using namespace std;
 
 //solution:
-#define int int64_t
-
-auto gcd(int a, int b) {
-    if(!b) return make_tuple(a, (int)1, (int)0);
+auto gcd(int64_t a, int64_t b) {
+    if(!b) return make_tuple(a, (int64_t)1, (int64_t)0);
     auto [d, x, y] = gcd(b, a % b);
     return make_tuple(d, y, x - (a / b) * y);
 }
 
 signed main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
-    int n, m, a, k;
+    int64_t n, m, a, k;
     while(cin >> n >> m >> a >> k, n || m || a || k) {
-        auto [d, x, y] = gcd(m, a);
+        int64_t [d, x, y] = gcd(m, a);
         if((k + a - n) % d) {
             cout << "Impossible\n"; 
             continue;
