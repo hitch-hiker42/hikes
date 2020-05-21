@@ -12,7 +12,7 @@ auto gcd(int64_t a, int64_t b) {
 signed main() {
     int64_t n, m, a, k;
     while(cin >> n >> m >> a >> k, n || m || a || k) {
-        int64_t [d, x, y] = gcd(m, a);
+        auto [d, x, y] = gcd(m, a);
         if((k + a - n) % d) {
             cout << "Impossible\n"; 
             continue;
