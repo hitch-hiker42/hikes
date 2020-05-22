@@ -32,8 +32,12 @@ int adjust(int x, int y, int z) {
 }
 
 int solve(int a, int b, int c) {
-    if(a == 0 and b == 0) {
-        if(c) return 0;
+    if(a == 0 || b == 0) {
+        if(a == b) {
+            if(c) return 0;
+            return -1;
+        }
+        if(c % (a ^ b)) return 0;
         return -1;
     }
     int x, y, d;
@@ -60,7 +64,7 @@ signed main() {
             cout << result << "\n";
             continue;
         }
-        cout << n << "\n";
+        cout << max(n, k + a) << "\n";
     }
     return 0;
 } //farewell, until we meet again..
