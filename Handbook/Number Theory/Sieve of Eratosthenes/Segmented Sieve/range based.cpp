@@ -15,7 +15,6 @@ auto sieve(int n) {
 
 auto segsieve(int lo, int hi) {
     vector<int> init = sieve((int)sqrtl(hi));
-    //int range = hi - lo + 1;
     bitset<lim> p; p.set();
     if(lo == 1) p.reset(0);
     for(int& i: init) {
