@@ -5,7 +5,7 @@ constexpr int lim = 1000'001;
 auto sieve(int n) {
     bitset<lim> p; p.set();
     for(int i = 4; i <= n; i += 2) p.reset(i);
-    for(int i = 3; i <= n; i += 2) if(p[i]) {
+    for(int i = 3; i <= n / i; i += 2) if(p[i]) {
         for(int j = i * i, k = i << 1; j <= n; j += k) p.reset(j);
     }
     vector<int> prime;
