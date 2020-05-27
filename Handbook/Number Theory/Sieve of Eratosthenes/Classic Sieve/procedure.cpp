@@ -7,25 +7,25 @@ auto sieve(int n) { //suitable for small 'n', yet doesn't dissapoint till 10^7
     vector<char> p(lim, true);
     p[0] = p[1] = false;
     for(int i = 4; i < n; i += 2) p[i] = false;
-	for(int i = 3; i < n / i; i += 2) if(p[i]) {
-		for(int j = i * i, k = i << 1; j <= n; j += k) p[j] = false;
-	}
-	vector<int> prime;
-	for(int i = 2; i <= n; ++i) if(p[i]) prime.emplace_back(i);
-	return move(prime);
+    for(int i = 3; i < n / i; i += 2) if(p[i]) {
+        for(int j = i * i, k = i << 1; j <= n; j += k) p[j] = false;
+    }
+    vector<int> prime;
+    for(int i = 2; i <= n; ++i) if(p[i]) prime.emplace_back(i);
+    return move(prime);
 }
 
 //With bit-level compression:
 auto sieve(int n) { //Variant I: serves for 'n' as large as 10^8 (in a way, keeps the best of the other two)
-	vector<bool> p(lim, true); //the boolean type is the only difference
-	p[0] = p[1] = false;
-	for(int i = 4; i < n; i += 2) p[i] = false;
-	for(int i = 3; i < n / i; i += 2) if(p[i]) {
-		for(int j = i * i, k = i << 1; j <= n; j += k) p[j] = false;
-	}
-	vector<int> prime;
-	for(int i = 2; i <= n; ++i) if(p[i]) prime.emplace_back(i);
-	return move(prime);
+    vector<bool> p(lim, true); //the boolean type is the only difference
+    p[0] = p[1] = false;
+    for(int i = 4; i < n; i += 2) p[i] = false;
+    for(int i = 3; i < n / i; i += 2) if(p[i]) {
+        for(int j = i * i, k = i << 1; j <= n; j += k) p[j] = false;
+    }
+    vector<int> prime;
+    for(int i = 2; i <= n; ++i) if(p[i]) prime.emplace_back(i);
+    return move(prime);
 }
 
 //Variant II:
