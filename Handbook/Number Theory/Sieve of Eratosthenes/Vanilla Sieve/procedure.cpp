@@ -2,7 +2,7 @@
 #define int int64_t
 constexpr int lim = 1000'001; //10'000'001, 100'000'001
 
-//Standard:
+//Classic:
 auto sieve(int n) { //suitable for small 'n', yet doesn't dissapoint till 10^7
     vector<char> p(lim, true);
     p[0] = p[1] = false;
