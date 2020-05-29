@@ -14,9 +14,10 @@ for(int& i: basis) {
 for(int i = 1; i < w[b - 1]; ++i) if(p[i]) stokes[b - 1].emplace_back(i);
 
 //skiplists:
-for(int i = 1; i < (int)stokes[b - 1].size(); i++) {
+for(int i = 1; i < (int)stokes[b - 1].size(); ++i) {
     skip[b - 1].emplace_back(stokes[b - 1][i] - stokes[b - 1][i - 1]);
 }
+skip[b - 1].emplace_back(2);
 
 //wheel hashes:
 for(int i = 0; i < (int)stokes[b - 1].size() - 1; i++) {
