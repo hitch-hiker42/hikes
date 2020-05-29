@@ -3,7 +3,7 @@
 constexpr int lim = 100'000'000;
 constexpr int s = 500'000; //10000, 100'000
 
-//basis: {2, 3, 5};
+//basis: {2, 3, 5}
 int w[] = {2, 6, 30}; //circumferences
 vector<int> skip[] = {{2}, {4, 2}, {6, 4, 2, 4, 2, 4, 6, 2}}; //skiplists
 vector<int> spokes[] = {{1, 3}, {1, 5, 7}, {1, 7, 11, 13, 17, 19, 23, 29, 31}}; //search spaces
