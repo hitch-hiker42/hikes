@@ -1,25 +1,33 @@
-//basis:
-length: b, composed of the first 'b' natural primes
+//author: hitch_hiker42;
+constexpr int b = 5;
+int basis[b] = {2, 3, 5, 7, 11}, w[b];
+vector<int> stokes[b], skip[b];
+map<int, int> wheel[b];
 
-//circumference:
-w[b - 1] = product of elements of the basis
+void construct() {
+	for(int j = 1; j <= b; ++j) {
+		vector<int> base(begin(basis), begin(basis) + j);
+		//circumference:
+		w[j - 1] = accumulate(span(base), 1, multiplies<int>());
+		
+		//stokes:
+		vector<bool> p(w[j - 1], true);
+		p[0] = false;
+		for(int& i: base) {
+		    p[i] = false;
+		    for(int k = i * i; k < w[j - 1]; k += i) p[k] = false;
+		}
+		for(int i = 1; i < w[j - 1]; ++i) if(p[i]) stokes[j - 1].emplace_back(i);
 
-//stokes:
-vector<bool> p(w[b - 1], true);
-p[0] = false;
-for(int& i: basis) {
-    p[i] = false;
-    for(int j = i * i; j < w[b - 1]; j += i) p[j] = false;
-}
-for(int i = 1; i < w[b - 1]; ++i) if(p[i]) stokes[b - 1].emplace_back(i);
+		//skiplists:
+		for(int i = 1, z = (int)stokes[j - 1].size(); i < z; ++i) {
+		    skip[j - 1].emplace_back(stokes[j - 1][i] - stokes[j - 1][i - 1]);
+		}
+		skip[j - 1].emplace_back(2);
 
-//skiplists:
-for(int i = 1, z = (int)stokes[b - 1].size(); i < z; ++i) {
-    skip[b - 1].emplace_back(stokes[b - 1][i] - stokes[b - 1][i - 1]);
-}
-skip[b - 1].emplace_back(2);
-
-//wheel hashes:
-for(int i = 0, z = (int)stokes[b - 1].size(); i < z; ++i) {
-    wheel[b - 1][stokes[b - 1][i]] = i;
-}
+		//wheel hashes:
+		for(int i = 0, z = (int)skip[j - 1].size(); i < z; ++i) {
+		    wheel[j - 1][stokes[j - 1][i]] = i;
+		}
+	}
+} //farewell, until we meet again..
