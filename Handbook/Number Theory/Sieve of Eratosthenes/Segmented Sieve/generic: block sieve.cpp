@@ -1,7 +1,7 @@
 //author: hitch_hiker42;
 #define int long long int
-constexpr int lim = 1000'001;
-constexpr int s = 10000; //100'000
+constexpr int lim = 1'000'001;
+constexpr int s = 10000; //100'000, 500'000
 
 auto sieve(int n) {
     vector<bool> p(n + 1, true);
@@ -17,8 +17,9 @@ auto sieve(int n) {
 
 auto segsieve(int n) {
     vector<int> init = sieve((int)sqrtl(n)), prime;
+    bool block[s]; //bitset<s> block;
     auto sift = [&](int lo, int hi) {
-        vector<bool> block(s, true);
+        memset(block, true, sizeof block); //block.set();
         for(int& i: init) {
             int m = lo + (i - lo % i) % i;
             if(m == i) m += i;
