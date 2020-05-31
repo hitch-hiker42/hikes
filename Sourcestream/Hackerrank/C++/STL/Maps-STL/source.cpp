@@ -5,7 +5,7 @@ using namespace std;
 //solution:
 signed main() {
     int t = 1, m; cin >> t;
-    map<string , int> test;
+    map<string, int> test;
     while(t--) {
         string s; int q; cin >> q;
         switch(q) {
