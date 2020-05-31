@@ -2,7 +2,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main() {
+//solution:
+signed main() {
     int T; cin >> T;
     cout << setiosflags(ios::uppercase);
     cout << setw(0xf) << internal;
