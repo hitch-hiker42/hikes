@@ -20,6 +20,7 @@ We are given a sequence of **N** non-negative integers, **A = <A<sub>0</sub>, A<
   
 ## Constraints:
 1 <= N <= 10<sup>6</sup>
+
 1 <= A<sub>i</sub> <= 10 <sup>5</sup>
 
 ## Input: 
