@@ -16,12 +16,12 @@ We are given a sequence of **N** non-negative integers, **A = <A<sub>0</sub>, A<
   
   - For each element **A<sub>idx</sub>** such that **idx** belongs to the right range (**Y < idx < N**), update **A<sub>i</sub>** as: **A<sub>idx</sub> = A<sub>idx</sub> + D<sub>3</sub>**
   
- **Note:** Since the values can be quite large, all output must be modulo 10<sup>9</sup>+7.
+ **Note:** Since the values can be quite large, all output must be **modulo 10<sup>9</sup>+7**.
   
 ## Constraints:
-1 <= N <= 10<sup>6</sup>
+1 <= **N** <= 10<sup>6</sup>
 
-1 <= A<sub>i</sub> <= 10 <sup>5</sup>
+1 <= **A<sub>i</sub>** <= 10 <sup>5</sup>
 
 ## Input: 
 The input consists of **Q + 2** lines in total.
