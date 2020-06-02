@@ -6,7 +6,7 @@
 We are given a sequence of **N** non-negative integers, **A = <A<sub>0</sub>, A<sub>1</sub>, ..., A<sub>N-1</sub>>**. Next, we'll process 
 **Q** queries of the following type(s) over it:
 
-- **1 X Y** `: Output the sum of the elements in the range [X, Y], 0 <= X <= Y < N`
+- **1 X Y** `: Output the sum of the elements in the range [X, Y], 0 <= X <= Y < N`, i.e., A<sub>X</sub> + A<sub>X+1</sub> + ... + A<sub>Y-1</sub> + A<sub>Y</sub>
 
 - **2 X Y D<sub>1</sub> D<sub>2</sub> D<sub>3</sub>** `: [X, Y] divides the range(hence the sequence) [0, N) into three parts: [0, X), [X, Y], (Y, N)`
 
