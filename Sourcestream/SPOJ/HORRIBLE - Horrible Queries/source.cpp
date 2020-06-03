@@ -7,7 +7,7 @@ using namespace std;
 
 struct fenwick {
     int n;
-    vector<int> bit[3], prefix;
+    vector<int> bit[3];
     fenwick(int n) {
         this -> n = n;
         bit[0].assign(n + 1, 0);
