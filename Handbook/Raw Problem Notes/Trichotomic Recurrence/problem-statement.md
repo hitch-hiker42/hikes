@@ -6,7 +6,7 @@
 We are given a sequence of **N** non-negative integers, **A = <A<sub>0</sub>, A<sub>1</sub>, ..., A<sub>N-1</sub>>**. Next, we'll process 
 **Q** queries of the following type(s) over it:
 
-- **1 X Y** `: Output the sum of the elements in the range [X, Y], 0 <= X <= Y < N`, i.e., **A<sub>X</sub> + A<sub>X+1</sub> + ... + A<sub>Y-1</sub> + A<sub>Y</sub>**
+- **1 X** `: Output the element indexed by X, 0 <= X <= Y < N`
 
 - **2 X Y D<sub>1</sub> D<sub>2</sub> D<sub>3</sub>** `: [X, Y] divides the range(hence the sequence) [0, N) into three parts: [0, X), [X, Y], (Y, N)`
 
@@ -32,7 +32,7 @@ The next line will contain **N** space-separtated non-negative integers **A<sub>
 
 The next **Q** lines contains queries, each of which can be of one of the two types (the meaning of the symbols is derived from the problem statement above):
 
-Type 1: **1 X Y**
+Type 1: **1 X**
 
 Type 2: **2 X Y D<sub>1</sub> D<sub>2</sub> D<sub>3</sub>**
 
@@ -44,11 +44,11 @@ For each query of the first type, output one non-negative integer as explained a
 Input:
 6 3
 1 3 2 4 5 6
-1 3 5
+1 3
 2 3 4 1 2 3
-1 2 5
+1 2
 
 Output:
-11
-35
+2
+7
 ```
