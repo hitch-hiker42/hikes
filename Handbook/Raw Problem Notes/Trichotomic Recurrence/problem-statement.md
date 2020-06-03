@@ -23,6 +23,10 @@ We are given a sequence of **N** non-negative integers, **A = <A<sub>0</sub>, A<
 
 1 <= **A<sub>i</sub>** <= 10<sup>5</sup>
 
+1 <= **D<sub>i</sub>** <= 10<sup>7</sup>
+
+1 <= **X** <= **Y** < **N**
+
 ## Input: 
 The input consists of **Q + 2** lines in total.
 
