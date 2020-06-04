@@ -16,18 +16,6 @@ struct fenwick {
         for(int x = i; x; x -= x & -x) result += bit[key][x];
         return result;
     }
-    int read(int i) {
-        int value = bit[2][i];
-        if(i) {
-            int idx = i - (i & -i);
-            i = i - 1;
-            while(i != idx) {
-                value -= bit[2][i];
-                i -= i & -i;
-            }
-        }
-        return value;
-    }       
     int query(int i) {
         int a = queryp(i, 0), b = queryp(i, 1);
         return a * i + b;
@@ -47,6 +35,21 @@ struct fenwick {
         updater(lo, hi, delta, 0);
         updater(lo, hi, -(lo - 1) * delta, 1);
         updater(hi + 1, n, (hi - lo + 1) * delta, 1);
+    }
+    int read(int i) {
+        int value = bit[2][i];
+        if(i) {
+            int idx = i - (i & -i);
+            i = i - 1;
+            while(i != idx) {
+                value -= bit[2][i];
+                i -= i & -i;
+            }
+        }
+        return value;
+    }
+    void write(int i, int value) {
+        update(i, value - read(i));
     }
     void process();
 }; //farewell, until we meet again..
