@@ -13,7 +13,7 @@ struct fenwick {
         this -> n = n + 1;
         bit.assign(n + 1, 0);
     }
-    fenwick(vector<int>& a): Fenwick(*max_element(span(a))) {
+    fenwick(vector<int>& a): fenwick(*max_element(span(a))) {
         for(int i = (int)a.size() - 1; ~i; --i) {
             inv += sum(a[i] - 1);
             update(a[i], 1);
