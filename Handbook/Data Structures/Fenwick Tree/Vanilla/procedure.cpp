@@ -23,7 +23,7 @@ struct fenwick {
             i = i - 1;
             while(i != idx) {
                 value -= bit[2][i];
-                i -= i & -x;
+                i -= i & -i;
             }
         }
         return value;
