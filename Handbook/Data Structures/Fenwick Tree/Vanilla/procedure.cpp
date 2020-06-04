@@ -51,5 +51,15 @@ struct fenwick {
     void write(int i, int value) {
         update(i, value - read(i));
     }
+    int order(int p) {
+        int run = 0, idx = 0;
+        for(int i = log2(n); ~i; --i) {
+            if(idx + (1 << i) < n and run + bit[idx + (1 << i)] < p) {
+        		run += bit[idx + (1 << i)];
+        		idx += (1 << i);
+        	}
+        }
+        return idx + 1;
+    }
     void process();
 }; //farewell, until we meet again..
