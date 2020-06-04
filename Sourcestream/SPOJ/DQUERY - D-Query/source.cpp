@@ -4,7 +4,7 @@ using namespace std;
 
 //solution:
 #define span(a) begin(a), end(a)
-constexpr int lim = 1000'000;
+constexpr int lim = 1000'001;
 int last[lim];
 
 struct fenwick {
@@ -22,6 +22,9 @@ struct fenwick {
     int sum(int lo, int hi) {
         return sum(hi) - sum(lo - 1);
     }
+    void update(int i, int delta) {
+        for(int x = i; x <= n; x += x & -x) bit[x] += delta;
+    }
     int read(int i) {
         int value = bit[i];
         if(i) {
@@ -34,10 +37,7 @@ struct fenwick {
         }
         return value;
     }
-    void update(int i, int delta) {
-        for(int x = i; x <= n; x += x & -x) bit[x] += delta;
-    }
-    void set(int i, int value) {
+    void write(int i, int value) {
         update(i, value - read(i));
     }
 };
@@ -59,15 +59,14 @@ void hike() {
         cin >> l >> r;
         data[i - 1] = query(l, r, i);
     }
-    memset(last, 0, sizeof last);
     sort(span(data), [](const query& lhs, const query& rhs) {
         if(lhs.r != rhs.r) return lhs.r < rhs.r;
         return lhs.l < rhs.l;
     });
     int idx = 0;
     for(int i = 1; i <= n; ++i) {
-        if(last[a[i - 1]]) tree.set(last[a[i - 1]], 0);
-        tree.set(i, 1);
+        if(last[a[i - 1]]) tree.write(last[a[i - 1]], 0);
+        tree.write(i, 1);
         last[a[i - 1]] = i;
         while(idx < q and data[idx].r == i) {
             data[idx].response = tree.sum(data[idx].l, data[idx].r);
