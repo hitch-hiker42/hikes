@@ -45,7 +45,6 @@ typedef struct fenwick {
         return sum(i);
     }
     int order_statistic(int k) {
-        if(k > sum(n)) return -1;
         int run = 0, idx = 0;
         for(int i = log2(n); ~i; --i) {
             if(idx + (1 << i) < n and run + bit[idx + (1 << i)] < k) {
