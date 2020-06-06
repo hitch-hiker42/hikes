@@ -1,4 +1,5 @@
 //author: hitch_hiker42;
+#define span(a) begin(a), end(a)
 void compress(vector<int>& sparse, int& m, map<int, int>& hash) {
     int n = sparse.size();
     vector<int> order(span(sparse)), dense;
