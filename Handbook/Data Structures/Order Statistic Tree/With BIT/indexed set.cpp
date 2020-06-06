@@ -55,4 +55,10 @@ typedef struct fenwick {
         }
         return idx + 1;
     }
+    int prev(int x) {
+        return order_statistic(rank(x) - 1);
+    }
+    int next(int x) {
+        return order_statistic(rank(x) + 1);
+    }
 } indexed_set; //farewell, until we meet again..
