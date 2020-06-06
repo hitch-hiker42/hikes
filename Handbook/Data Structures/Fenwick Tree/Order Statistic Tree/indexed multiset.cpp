@@ -17,15 +17,15 @@ typedef struct fenwick {
     int update(int i, int delta) {
         for(int x = i; x <= n; x += x & -x) bit[x] += delta;
     }
-    bool empty() {
-        if(sum(n)) return false;
-        return true;
-    }
     int insert(int i) {
         update(i, 1);
     }
     int erase(int i) {
         update(i, -1);
+    }
+    bool empty() {
+        if(sum(n)) return false;
+        return true;
     }
     int rank(int i) {
         return sum(i);
