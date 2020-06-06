@@ -1,5 +1,5 @@
 //author: hitch_hiker42;
-struct fenwick {
+typedef struct fenwick {
     int n;
     vector<int> bit;
     fenwick(int n) {
@@ -51,4 +51,4 @@ struct fenwick {
         }
         return idx + 1;
     }
-}; //farewell, until we meet again..
+} indexed_set; //farewell, until we meet again..
