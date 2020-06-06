@@ -51,7 +51,7 @@ struct fenwick {
     void write(int i, int value) {
         update(i, value - read(i));
     }
-    int order_statistic(int k) {
+    int lower_bound(int k) {
         int run = 0, idx = 0;
         for(int i = log2(n); ~i; --i) {
             if(idx + (1 << i) < n and run + bit[idx + (1 << i)] < k) {
