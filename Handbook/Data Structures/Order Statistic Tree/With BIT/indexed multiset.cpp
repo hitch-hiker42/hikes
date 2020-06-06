@@ -51,5 +51,5 @@ typedef struct fenwick {
             }
         }
         return idx + 1;
-    }}
+    }
 } indexed_multiset; //farewell, until we meet again..
