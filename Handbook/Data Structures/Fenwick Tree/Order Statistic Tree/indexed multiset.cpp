@@ -17,6 +17,18 @@ typedef struct fenwick {
     int update(int i, int delta) {
         for(int x = i; x <= n; x += x & -x) bit[x] += delta;
     }
+    int read(int i) {
+        int value = bit[i];
+        if(i) {
+            int idx = i - (i & -i);
+            i = i - 1;
+            while(i != idx) {
+                value -= bit[i];
+                i -= i & -i;
+            }
+        }
+        return value;
+    }
     int insert(int i) {
         update(i, 1);
     }
