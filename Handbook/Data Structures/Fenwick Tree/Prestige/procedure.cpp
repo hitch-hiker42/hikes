@@ -61,5 +61,5 @@ struct fenwick {
         }
         return idx + 1;
     }
-    void process();
+    void process(); //to be defined, for query processing..
 }; //farewell, until we meet again..
