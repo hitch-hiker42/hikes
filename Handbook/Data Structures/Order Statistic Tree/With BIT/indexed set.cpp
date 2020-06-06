@@ -5,7 +5,7 @@ typedef struct fenwick {
     fenwick(int n) {
         this -> n = n;
         bit.assign(n + 1, 0);
-    }
+    }}
     int sum(int i) {
         int result = 0;
         while(i) result += bit[i], i -= i & -i;
