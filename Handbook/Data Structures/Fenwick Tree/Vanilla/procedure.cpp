@@ -35,4 +35,5 @@ struct fenwick {
     void write(int i, int value) {
         update(i, value - read(i));
     }
+    void process(); //to be defined, for query processing..
 }; //farewell, until we meet again..
