@@ -37,6 +37,10 @@ typedef struct fenwick {
         if(read(i) == 0) return;
         update(i, -1);
     }
+    bool empty() {
+        if(sum(n)) return false;
+        return true;
+    }
     int rank(int i) {
         return sum(i);
     }
