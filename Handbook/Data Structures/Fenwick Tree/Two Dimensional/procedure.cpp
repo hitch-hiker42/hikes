@@ -24,5 +24,5 @@ struct fenwick {
             for(int y = i[1]; y <= m; y += y & -y) bit[x][y] += delta;
         }
     }
-    void process();
+    void process(); //to be defined, for query processing..
 }; //farewell, until we meet again..
