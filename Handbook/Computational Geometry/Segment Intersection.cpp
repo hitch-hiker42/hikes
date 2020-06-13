@@ -62,7 +62,7 @@ bool intersect(line l, line m) {
     d[1] = direction(l[0], l[1], m[1]);
     d[2] = direction(m[0], m[1], l[0]);
     d[3] = direction(m[0], m[1], l[1]);
-    if((d[0] * d[1]) == -1 || (d[2] * d[3] == -1)) return true;
+    if((d[0] * d[1]) == -1 and (d[2] * d[3] == -1)) return true;
     if(d[0] == 0 and onseg(l, m[0])) return true;
     if(d[1] == 0 and onseg(l, m[1])) return true;
     if(d[2] == 0 and onseg(m, l[0])) return true;
