@@ -50,7 +50,7 @@ int direction(point o, point p, point q) {
     return sign((p - o) ^ (q - o));
 }
 
-bool onseg(line l, point p) {
+bool onseg(line l, point p) { //assumes 'p' is collinear with 'l'
     array<int, 2> lo = {min(l[0].x, l[1].x), min(l[0].y, l[1].y)};
     array<int, 2> hi = {max(l[0].x, l[1].x), max(l[0].y, l[1].y)};
     return member(p.x , lo[0], hi[0]) and member(p.y, lo[1], hi[1]);
