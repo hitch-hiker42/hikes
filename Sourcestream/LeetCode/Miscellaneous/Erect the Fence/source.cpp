@@ -1,3 +1,4 @@
+//author: hitch_hiker42;
 #define span(a) begin(a), end(a)
 #define point array<int, 2>
 #define segment array<point, 2>
@@ -75,4 +76,4 @@ public:
         for(auto& i: offset) hull.push_back(i);
         return hull;
     }
-};
+}; //farewell, until we meet again..
