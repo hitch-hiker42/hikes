@@ -12,4 +12,4 @@ signed main() {
     int t; cin >> t;
     while(t--) purgatorio();
     return 0;
-} //farewell, until we meet again!
+} //farewell, until we meet again..
