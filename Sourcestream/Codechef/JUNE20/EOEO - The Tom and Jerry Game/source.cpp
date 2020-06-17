@@ -10,6 +10,6 @@ void hike() {
 
 signed main() {
     int t; cin >> t;
-    while(t--) purgatorio();
+    while(t--) hike();
     return 0;
 } //farewell, until we meet again..
