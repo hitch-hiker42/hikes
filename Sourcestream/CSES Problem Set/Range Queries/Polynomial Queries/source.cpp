@@ -10,12 +10,7 @@ struct fenwick {
     vector<int> bit[6];
     fenwick(int n) {
         this -> n = n;
-        bit[0].assign(n + 1, 0);
-        bit[1].assign(n + 1, 0);
-        bit[2].assign(n + 1, 0);
-        bit[3].assign(n + 1, 0);
-        bit[4].assign(n + 1, 0);
-        bit[5].assign(n + 1, 0);
+        for(auto& i: bit) i.assign(n + 1, 0);
     }
     fenwick(vector<int>& a): fenwick(a.size()) {
         for(int i = 1; i <= n; ++i) updatex(i, a[i - 1], 5);
