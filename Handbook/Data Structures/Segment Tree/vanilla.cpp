@@ -8,8 +8,9 @@ struct segtree {
     vector<int> t;
     function<int(int, int)> op;
     segtree(vector<int> a, function<int(int, int)> bin, int id) {
-        this -> op = bin;
         this -> n = a.size();
+        this -> op = bin;
+        identity = id;
         t.assign(n << 1, identity);
         for(int i = 0; i < n; ++i) t[n + i] = a[i];
         for(int i = n - 1; i; --i) {
