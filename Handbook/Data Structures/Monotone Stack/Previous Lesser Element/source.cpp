@@ -1,7 +1,7 @@
 //author: hitch_hiker42;
 auto ple(vector<int>& a) {
-    int n = a.size();
     stack<int> s;
+    int n = a.size();
     vector<int> premin(n);
     for(int i = 0; i < n; ++i) {
         while(!s.empty() and a[s.top() - 1] > a[i]) s.pop();
