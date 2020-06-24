@@ -5,12 +5,7 @@ auto ple(vector<int>& a) {
     stack<int> s;
     for(int i = 0; i < n; ++i) {
         while(!s.empty() and a[s.top() - 1] > a[i]) s.pop();
-        if(s.empty()) {
-            premin[i] = -1;
-            s.push(i + 1);
-            continue;
-        }
-        premin[i] = s.top();
+        premin[i] = s.empty() ? -1 : s.top();
         s.push(i + 1);
     }
     return move(premin);
