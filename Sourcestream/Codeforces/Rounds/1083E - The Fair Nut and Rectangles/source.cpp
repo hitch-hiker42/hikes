@@ -57,12 +57,11 @@ void hike() {
         return lhs[0] < rhs[0];
     });
     vector<int> dp(n);
-    dp[0] = r[0][0] * r[0][1] - r[0][2];
-    cht env(line(-r[0][0], dp[0]));
-    int maxima = dp[0];
-    for(int i = 1; i < n; ++i) {
+    cht env(line(0, 0));
+    int maxima = numeric_limits<int>::min();
+    for(int i = 0; i < n; ++i) {
         auto l = env.query(r[i][1]);
-        dp[i] = r[i][0] * r[i][1] - r[i][2] + l.f(r[i][1]) * (l.f(r[i][1]) >= 0);
+        dp[i] = r[i][0] * r[i][1] - r[i][2] + l.f(r[i][1]);
         maxima = max(maxima, dp[i]);
         env.insert(line(-r[i][0], dp[i]));
     }
