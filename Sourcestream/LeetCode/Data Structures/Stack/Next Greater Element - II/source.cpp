@@ -2,14 +2,14 @@
 class Solution {
 public:
     #define span(a) begin(a), end(a)
-    auto concate(vector<int>& x, vector<int> y) {
+    auto concat(vector<int>& x, vector<int> y) {
         move(span(y), back_inserter(x));
         return move(x);
     }
     auto nextGreaterElements(vector<int>& a) {
         int n = a.size(), m = n << 1;
         stack<int> s;
-        a = concate(a, a);
+        a = concat(a, a);
         vector<int> next(n, -1);
         for(int i = 0; i < m; ++i) {
             while(!s.empty() and a[s.top()] < a[i]) {
