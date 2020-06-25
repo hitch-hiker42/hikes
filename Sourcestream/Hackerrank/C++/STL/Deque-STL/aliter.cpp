@@ -3,7 +3,7 @@
 using namespace std;
 
 //solution:
-struct window{
+struct window {
     stack<array<int, 2>> x, y;
     void push(int element) {
         int m = x.empty() ? element : std::max(x.top()[1], element);
