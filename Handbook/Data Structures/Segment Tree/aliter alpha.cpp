@@ -1,3 +1,4 @@
+//author: hitch_hiker42;
 struct segtree {
     using T = int; //node type
     using Q = int; //query type
@@ -38,4 +39,4 @@ struct segtree {
     void update(int i, int v) {
         update(i, v, 0, 0, size);
     }
-};
+}; //farewell, until we meet again..
