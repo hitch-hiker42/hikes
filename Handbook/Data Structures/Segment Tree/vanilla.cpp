@@ -1,4 +1,8 @@
 //author: hitch_hiker42;
+#define parent(i) (i >> 1)
+#define left(i) (i << 1)
+#define right(i) (left(i) | 1)
+
 template<class T>
 struct segtree {
     int n;
