@@ -1,6 +1,5 @@
 //author: hitch_hiker42;
-//tree to code:
-auto encode(vector<vector<int>>& adj, vector<int>& d, int n) {
+auto encode(vector<vector<int>>& adj, vector<int>& d, int n) { //tree to code:
     priority_queue<int, vector<int>, greater<int>> leaves;
     for(int i = 1; i <= n; ++i) {
         if(adj[i].size() == 1) leaves.push(i);
@@ -18,8 +17,7 @@ auto encode(vector<vector<int>>& adj, vector<int>& d, int n) {
     return move(code);
 }
 
-//code to tree:
-auto decode(vector<int>& code, int n) {
+auto decode(vector<int>& code, int n) { //code to tree:
     vector<int> d(n + 1, 1);
     for(int& i: code) d[i]++;
     priority_queue<int, vector<int>, greater<int>> leaves;
