@@ -1,5 +1,6 @@
 //author: hitch_hiker42;
 #define int int64_t
+constexpr int p = 31, mod = 1000'000'009;
 
 int rollhash(string const& s) {
     int hash = 0, x = 1;
