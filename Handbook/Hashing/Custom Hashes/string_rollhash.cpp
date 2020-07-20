@@ -21,4 +21,4 @@ struct custom {
 };
 
 unordered_map<string, int, custom, equal> f;
-// farewell, until we meet again..
+//farewell, until we meet again..
