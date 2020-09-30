@@ -1,45 +1,31 @@
-struct decomposition {
+struct centroid {
   int n;
-  vector<set<int>> adj;
-  vector<int> parent, ans, sub;
-  decomposition(vector<set<int>>& adj, int n): adj(adj), n(n) {
-    parent.assign(n + 1, 0);
-    ans.assign(n + 1, inf);
-    sub.assign(n + 1, 1);
-    decompose(n, 1, 0);
+  centroid(vector<vector<int>>& adj, int n): n(n) {
+    // memset(dead, 0, (n + 1) * sizeof(int));
+    decompose(adj, n, 1, 0);
   }
-  int subtree(int u, int p) {
+  int subtree(vector<vector<int>>& adj, int u, int p) {
     sub[u] = 1;
-    for(auto& v: adj[u]) if(v != p) {
-      sub[u] += subtree(v, u);
+    for(int& v: adj[u]) if(v != p and !dead[v]) {
+      sub[u] += subtree(adj, v, u);
     }
     return sub[u];
   }
-  int centroid(int m, int u, int p) {
-    for(auto& v: adj[u]) if(v != p) {
-      if(sub[v] > (m >> 1)) return centroid(m, v, u);
+  int centroid(vector<vector<int>>& adj, int u, int p, int m) {
+    for(int& v: adj[u]) if(v != p and !dead[v]) {
+      if(sub[v] > (m >> 1)) return centroid(adj, v, u, m);
     }
     return u;
   }
-  void decompose(int m, int u, int p) {
-    subtree(u, p);
-    int c = centroid(sub[u], u, p);
-    parent[c] = p;
-    for(auto& v: adj[c]) {
-      adj[v].erase(c);
-      decompose(sub[v], v, c);
+  void decompose(vector<vector<int>>& adj, int m, int u, int p) {
+    subtree(adj, u, p);
+    int c = centroid(adj, u, p, sub[u]);
+    dead[c] = 1, parent[c] = p;
+    for(int& v: adj[c]) if(!dead[v]) {
+      decompose(adj, sub[v], v, c);
     }
   }
-  void update(int u) {
-    for(int v = u; v; v = parent[v]) {
-      ans[v] = min(ans[v], dist(u, v));
-    }
-  }
-  int query(int u) {
-    int result = ans[u];
-    for(int v = u; v; v = parent[v]) {
-      result = min(result, dist(u, v) + ans[v]);
-    }
-    return result;
+  int operator[] (int u) {
+  	return parent[u];
   }
 };
