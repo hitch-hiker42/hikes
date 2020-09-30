@@ -11,15 +11,15 @@ struct centroid {
     }
     return sub[u];
   }
-  int centroid(vector<vector<int>>& adj, int u, int p, int m) {
+  int find(vector<vector<int>>& adj, int u, int p, int m) {
     for(int& v: adj[u]) if(v != p and !dead[v]) {
-      if(sub[v] > (m >> 1)) return centroid(adj, v, u, m);
+      if(sub[v] > (m >> 1)) return find(adj, v, u, m);
     }
     return u;
   }
   void decompose(vector<vector<int>>& adj, int m, int u, int p) {
     subtree(adj, u, p);
-    int c = centroid(adj, u, p, sub[u]);
+    int c = find(adj, u, p, sub[u]);
     dead[c] = 1, parent[c] = p;
     for(int& v: adj[c]) if(!dead[v]) {
       decompose(adj, sub[v], v, c);
