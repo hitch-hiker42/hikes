@@ -26,6 +26,6 @@ struct centroid {
     }
   }
   int operator[] (int u) {
-  	return parent[u];
+    return parent[u];
   }
 };
