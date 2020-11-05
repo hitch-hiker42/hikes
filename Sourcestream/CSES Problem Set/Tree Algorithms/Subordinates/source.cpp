@@ -6,7 +6,6 @@ using namespace std;
 vector<int> adj[200'001], sub(200'001);
 
 int dfs(int u, int p) {
-  sub[u] = 1;
   for(int& v: adj[u]) if(v != p) {
     sub[u] += dfs(v, u);
   }
