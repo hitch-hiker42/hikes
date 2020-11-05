@@ -6,7 +6,7 @@ using namespace std;
 vector<int> adj[200'001], sub(200'001);
 
 int dfs(int u, int p) {
-  //sub[u] = 1;
+  sub[u] = 1;
   for(int& v: adj[u]) if(v != p) {
     sub[u] += dfs(v, u);
   }
@@ -21,7 +21,7 @@ void hike() {
     adj[v].push_back(u);
   }
   dfs(1, 0);
-  for(int i = 1; i <= n; ++i) cout << sub[i] << ' ';
+  for(int i = 1; i <= n; ++i) cout << sub[i] - 1 << ' ';
 }
  
 signed main() {
