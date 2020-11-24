@@ -1,11 +1,13 @@
 //author: hitch_hiker42;
-void compress(vector<int>& a, int& m, map<int, int>& hash) {
-    set<int> filter;
-    for(auto& i: a) filter.insert(i);
-    m = 0;
-    for(auto& i: filter) hash[i] = ++m;
-    for(auto& i: a) i = hash[i];
-    map<int, int> invert;
-    for(auto& [x, y]: hash) invert[y] = x;
-    hash = invert;
+auto compress(vector<int>& sparse) {
+  int idx = 1, n = sparse.size();
+  map<int, int> hash, invert;
+  vector<int> order(span(sparse));
+  sort(span(order));
+  for(auto& i: order) {
+    if(!hash[i]) hash[i] = idx, invert[idx] = i, idx++;
+  }
+  vector<int> dense(n);
+  for(int i = 0; i < n; ++i) dense[i] = hash[sparse[i]];
+  return move(dense);
 } //farewell, until we meet again..
