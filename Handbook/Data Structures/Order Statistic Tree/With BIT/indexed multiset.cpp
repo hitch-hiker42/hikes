@@ -2,6 +2,7 @@
 typedef struct fenwick {
     int n;
     vector<int> bit;
+    fenwick() = default;
     fenwick(int n) {
         this -> n = n;
         bit.assign(n + 1, 0);
@@ -14,7 +15,7 @@ typedef struct fenwick {
     int sum(int lo, int hi) {
         return sum(hi) - sum(lo - 1);
     }
-    int update(int i, int delta) {
+    void update(int i, int delta) {
         for(int x = i; x <= n; x += x & -x) bit[x] += delta;
     }
     int read(int i) {
@@ -29,10 +30,10 @@ typedef struct fenwick {
         }
         return value;
     }
-    int insert(int i) {
+    void insert(int i) {
         update(i, 1);
     }
-    int erase(int i) {
+    void erase(int i) {
         update(i, -1);
     }
     bool empty() {
