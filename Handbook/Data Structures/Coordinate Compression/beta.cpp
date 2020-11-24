@@ -1,7 +1,7 @@
 //author: hitch_hiker42;
-auto compress(vector<int>& sparse) {
+auto compress(vector<int>& sparse, vector<int>& invert) {
   int idx = 1, n = sparse.size();
-  map<int, int> hash, invert;
+  map<int, int> hash;
   vector<int> order(span(sparse));
   sort(span(order));
   for(auto& i: order) {
