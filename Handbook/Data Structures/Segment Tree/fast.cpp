@@ -5,7 +5,7 @@ int f(int i, int j) {
   return max(i, j);
 }
 
-void init() {
+void build() {
   for(int i = 0; i < n; ++i) t[n + i] = a[i];
   for(int i = n - 1; i; --i) {
     t[i] = f(t[i << 1], t[(i << 1) | 1]);
