@@ -1,33 +1,39 @@
-//author: hitch_hiker42;
-#define parent(i) (i >> 1)
-#define left(i) (i << 1)
-#define right(i) (left(i) | 1)
-
-template<class T>
 struct segtree {
-    int n;
-    T identity;
-    vector<T> t;
-    function<T(T, T)> op;
-    segtree(vector<int> a, function<T(T, T)> bin, T id) {
-        this -> n = a.size();
-        this -> op = bin;
-        identity = id;
-        t.assign(n << 1, identity);
-        for(int i = 0; i < n; ++i) t[n + i] = {a[i], 1};
-        for(int i = n - 1; i; --i) {
-            t[i] = op(t[left(i)], t[right(i)]);
-        }
+  int n;
+  static inline int size = 1, id = 0;
+  vector<int> t;
+  segtree() = default;
+  segtree(int n): n(n) {
+    while(size < n) size <<= 1;
+    t.assign(size << 1, 0);
+  }
+  int f(int x, int y) {
+    return max(x, y);
+  }
+  void build(vector<int>& a, int x = 0, int l = 0, int r = size) {
+    if(r - l == 1) {
+      if(l < n) t[x] = a[l];
+      return;
     }
-    void update(int i, T delta) {
-        for(t[i += n] = delta; i > 1; i >>= 1) t[parent(i)] = op(t[i], t[i ^ 1]);
+    int m = l + r >> 1;
+    build(a, 2 * x + 1, l, m);
+    build(a, 2 * x + 2, m, r);
+    t[x] = f(t[2 * x + 1], t[2 * x + 2]);
+  }
+  int query(int lo, int hi, int x = 0, int l = 0, int r = size) {
+    if(lo >= r || l >= hi) return id;
+    if(lo <= l and r <= hi) return t[x];
+    int m = l + r >> 1;
+    return f(query(lo, hi, 2 * x + 1, l, m), query(lo, hi, 2 * x + 2, m, r));
+  }
+  void update(int i, int v, int x = 0, int l = 0, int r = size) {
+    if(r - l == 1) return void(t[x] = v);
+    int m = l + r >> 1;
+    if(i < m) {
+      update(i, v, 2 * x + 1, l, m);
+    } else {
+      update(i, v, 2 * x + 2, m, r);
     }
-    auto query(int lo, int hi) {
-        T result = identity;
-        for(lo += n, hi += n; lo < hi; lo >>= 1, hi >>= 1) {
-            if (lo & 1) result = op(result, t[lo++]);
-            if (hi & 1) result = op(result, t[--hi]);
-        }
-        return result;
-    }
-}; //farewell, until we meet again..
+    t[x] = f(t[2 * x + 1], t[2 * x + 2]);
+  }
+};
